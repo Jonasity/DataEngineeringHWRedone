@@ -12,16 +12,16 @@ output_columns = ["date", "count"]
 
 #Define the map and reduce functions
 def map_func(row: Dict) -> List[Tuple[str, int]]:
-    """Maps the specified column in each row to a list of (value, 1) tuples"""
+    #Maps the specified column in each row to a list of (value, 1) tuples
     return [(row, 1)]
 
 def reduce_func(result: Dict, item: Tuple[str, int]) -> Dict:
-    """Reduces a list of (date, count) tuples into a dictionary with the counts"""
-    data, count = item
-    if data in result:
-        result[data] += count
+    #Reduces a list of (date, count) tuples into a dictionary with the counts
+    date, count = item
+    if date in result:
+        result[date] += count
     else:
-        result[data] = count
+        result[date] = count
     return result
 
 # Call the map_reduce function

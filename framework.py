@@ -4,15 +4,12 @@ import csv
 from typing import List, Tuple, Callable, Dict
 
 def mapper(file_path: str, map_func: Callable, column_name: str) -> List:
-    #Applies the map_func to the column of each row in the CSV file
+    #Applies the map_func to the column of each row
     data = []
     with open(file_path, newline='') as csvfile:
         reader = csv.reader(csvfile)
-        # Get the column names from the first row
         column_names = next(reader)
-        # Get the index of the desired column name
         column_index = column_names.index(column_name)
-        # Apply the map function to the column of each row
         for row in reader:
             data.extend(map_func(row[column_index]))
     return data
@@ -36,11 +33,9 @@ def map_reduce(data_dir: str, map_func: Callable, reduce_func: Callable, output_
     reduced_data = reducer(mapped_data, reduce_func)
     # Write the reduced data to a CSV file
     output_file = output_dir+".csv"
-    #output_file = os.path.join(output_dir, "output.csv").replace("\\","/")
     with open(output_file, mode="w", newline="") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=output_columns)
         writer.writeheader()
         for key, value in reduced_data.items():
             writer.writerow({output_columns[0]: key, output_columns[1]: value})
-    
     return reduced_data
