@@ -6,8 +6,8 @@ Developed and tested using Visual Studio Code
 
 >Download the files into an empty folder. Open the folder in an IDE (such as Visual Studio).   
 In the terminal, run with:  
-python test1.py (For the first task)  
-python test2.py (For the second task)   
+python test1.py   (For the first task)  
+python test2.py   (For the second task)   
 The program will print out to the console as well that allows for a quick glance at the output format  
 Running these commands will call the functions with the necessary inputs to complete tasks 1 and 2   
 
