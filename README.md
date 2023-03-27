@@ -14,4 +14,4 @@ Running these commands will call the functions with the necessary inputs to comp
 The MapReduce framework is located, fittingly, in the framework.py file.  
 As the title suggests, this is not my first solution to the homework.  
 This solution makes use of higher order functions to hopefully achieve more simplicity and more scalability.
-Of course, it is not polished to the extent I wish it could be. There are some evident limitations in the framework, such as the framework does not properly have the ability to intake a dictionary of map functions and process them.
+Of course, it is not polished to the extent I wish it could be. There are some evident limitations in the framework, such as the framework does not properly have the ability to intake a dictionary of map functions and process them. The merge system is done in a way that requires calling the function twice. The key is taken as the first output column entry, rather than defined in the user map function.
